@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ejerciciosJavascript.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EJERCICIO 11</h1>
+    <p>Crea un array de números de un tamaño pasado por prompt, el array contendrá
+        números aleatorios entre 1 y 300 y mostrará aquellos números que acaben en un
+        dígito que nosotros le indiquemos por prompt (debes controlar que se introduce un
+        número correcto), estos deben guardarse en un nuevo array. Por ejemplo, en un
+        array de 10 posiciones le indicamos mostrar los números acabados en 5, podría salir
+        155, 25, etc.
+    </p>
+    <p>Ver resultado en la consola</p>
+    <script>
+
+        function aleatorio() {
+            let inferior = 1;
+            let superior = 300;
+            var numPosibilidades = superior - inferior;
+            var aleatorio = Math.random() * (numPosibilidades + 1);
+            var aleatorio = Math.floor(aleatorio);
+            return (inferior + aleatorio);
+        }
+        function numerosAleatoriosArray(tamaño) {
+            let numerosAleatorios = [];
+            for (i = 0; i < tamaño; i++) {
+                numerosAleatorios.push(aleatorio());
+            }
+            return numerosAleatorios
+        }
+        function ultimoNumero() {
+            let terminacion = parseInt(prompt("introduce la cifra final"));
+            if (terminacion < 0 && terminacion > 9) {
+                console.log("introduce una cifra entre 0 y 9");
+            }
+            return terminacion;
+        }
+
+        function numerosFinales(array, numeroFinal) {
+            let arrayFinal = [];
+            for (i = 0; i < array.length; i++) {
+                if (comprobarNumeroFinal(array[i], numeroFinal) == true) {
+                    arrayFinal.push(array[i])
+                }
+            }
+            return arrayFinal;
+        }
+        function comprobarNumeroFinal(numero, digito) {
+            let comprobacion = numero.toString();
+            comprobacion = comprobacion.endsWith(digito);
+            if (comprobacion == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        let tamañoArray = parseFloat(prompt("Introduce el tamaño del array"));
+        let arrayAleatorio = numerosAleatoriosArray(tamañoArray);
+        let ultimaCifra = ultimoNumero();
+        let arrayFinal = numerosFinales(arrayAleatorio, ultimaCifra);
+        console.log(arrayFinal);
+
+    </script>
+    <footer>
+        <p>Retos-Javascript Vanilla (II)</p>
+        <p>Aroa Mendez</p>
+    </footer>
+</body>
+
+</html>

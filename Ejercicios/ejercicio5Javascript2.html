@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ejerciciosJavascript.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ejercicio 5</h1>
+    <p>Crea una aplicación que nos convierta un número en base decimal a binario. Esto lo
+        realizará un método al que le pasaremos el número como parámetro, devolverá un
+        String con el numero convertido a binario. Para convertir un número decimal a
+        binario, debemos dividir entre 2 el número y el resultado de esa división se divide
+        entre 2 de nuevo hasta que no se pueda dividir más, el resto que obtengamos de
+        cada división formara el número binario, de abajo a arriba.</p>
+        <p>Ver resultado en la consola</p>
+    <script>
+
+        let numero = prompt("Introduce un numero en base diez");
+        let binario = convertirBinario(numero);
+        console.log(binario);
+
+        function convertirBinario(decimal) {
+            let resto = 0;
+            let array = [];
+            do {
+                resto = decimal % 2;
+                array.push(resto);
+                decimal = Math.floor(decimal / 2)
+                console.log(decimal);
+            }
+            while (decimal != 1);
+            array.push(decimal);
+            array = array.reverse();
+            let binario = array.toString();
+            binario = binario.replace(/,/g, "");
+            return binario;
+        }
+
+    </script>
+    <footer>
+        <p>Retos-Javascript Vanilla (I)</p>
+        <p>Aroa Mendez</p>
+    </footer>
+</body>
+
+</html>

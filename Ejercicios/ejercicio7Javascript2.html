@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ejerciciosJavascript.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EJERCICIO 7</h1>
+    <p>Crea una aplicación que nos convierta una cantidad de euros introducida por prompt
+        a otra moneda, estas pueden ser a dólares, yenes o libras. El método tendrá como
+        parámetros, la cantidad de euros y la moneda a pasar que será una cadena, este no
+        devolverá ningún valor, mostrará un mensaje indicando el cambio.
+        El cambio de divisas es:
+        <ul>
+            <li>0.86 libras es un 1 €</li>
+            <li>1.28611 $ es un 1 €</li>
+            <li>129.852 yenes es un 1 €</li>
+        </ul>
+         </p>
+    <script>
+        const libras = 0.86;
+        const dolares = 1.28611;
+        const yenes = 129.852;
+
+        function libra(euros, libras) {
+            return (euros * libras);
+        }
+        function dolar(euros, dolares) {
+            return (euros * dolares);
+        }
+        function yen(euros, yenes) {
+            return (euros * yenes);
+        }
+
+        let euros;
+        let moneda;
+        do {
+            euros = prompt("introduce la cantidad de euros");
+            moneda = prompt("introduce la moneda: libra, dolar o yen");
+            switch (moneda) {
+                case "libra":
+                    document.write(libra(euros, libras));
+                    break;
+                case "dolar":
+                    document.write(dolar(euros, dolares));
+                    break;
+                case "yen":
+                    document.write(yen(euros, yenes));
+                    break;
+                default:
+                    alert("Introduce una moneda correcta");
+                    break;
+            }
+        } while (moneda != "libra" & moneda != "dolar" & moneda != "yen");
+    </script>
+    <footer>
+        <p>Retos-Javascript Vanilla (II)</p>
+        <p>Aroa Mendez</p>
+    </footer>
+</body>
+
+</html>

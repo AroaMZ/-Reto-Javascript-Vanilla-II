@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ejerciciosJavascript.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EJERCICIO 10</h1>
+    <p>Crea un array de números de un tamaño pasado por prompt, el array contendrá
+        números aleatorios primos entre los números deseados, por último, nos indicar cual
+        es el mayor de todos. Haz un método para comprobar que el número aleatorio es
+        primo, puedes hacer todos los métodos que necesites.
+    </p>
+    <p>Ver resultado en la consola</p>
+    <script>
+
+        // preguntar la longitud del array
+        let longitud = parseFloat(prompt("Introduce la longitud del array"));
+        // preguntar limite inferior de los numeros
+        let inferior = parseFloat(prompt("Introduce el limite inferior del array"));
+        // preguntar limite superior de los numeros
+        let superior = parseFloat(prompt("Introduce el limite superior del array"));
+        // crear un array con numeros aleatorios de la langitud que nos han dado que esten entre el limite inferior y el superior
+        let arrayPrimos = crearArrayPrimos(longitud, superior, inferior);
+        // imprimir el numero mas grande del array
+        let mayor = numeroMayor(arrayPrimos);
+        console.log("el numero mas grande del array es: " + mayor)
+
+
+        // funciones
+
+        // calcular si un numero es primo
+        function numeroPrimo(numero) {
+            let i = 2;
+            let primo = true;
+            do {
+                if (numero % i === 0) {
+                    primo = false;
+                }
+                i++;
+            } while (i < numero);
+            return primo;
+        }
+
+        // calcular un numero entre 2 numeros
+        function aleatorio(inferior, superior) {
+            inferior = parseFloat(inferior);
+            superior = parseFloat(superior);
+            const numPosibilidades = superior - inferior;
+            let aleatorio = Math.random() * (numPosibilidades + 1);
+            aleatorio = Math.floor(aleatorio);
+            return (inferior + aleatorio);
+        }
+
+        function crearNumeroPrimoEntreLimites(inferior, superior) {
+            do {
+                limiteNumero = aleatorio(inferior, superior)
+                primo = numeroPrimo(limiteNumero)
+
+            }
+            while (primo == false)
+            return limiteNumero
+        }
+
+        // crear array de numeros primos de longitud X y entre un limite superior e inferior
+        function crearArrayPrimos(longitud, superior, inferior) {
+            let array = [];
+            let numero;
+            let primo;
+            for (i = 0; i < longitud; i++) {
+                numero = crearNumeroPrimoEntreLimites(inferior, superior)
+                array.push(numero)
+            }
+            return array;
+        }
+
+        // calcular cual es el numero mas grande de un array
+        function numeroMayor(arrayNumeros) {
+            let maximo = 0;
+            for (i = 0; i < arrayNumeros.length; i++) {
+                if (arrayNumeros[i] > maximo) {
+                    maximo = arrayNumeros[i]
+                }
+
+            }
+            return maximo
+        }
+    </script>
+    <footer>
+        <p>Retos-Javascript Vanilla (II)</p>
+        <p>Aroa Mendez</p>
+    </footer>
+</body>
+
+</html>

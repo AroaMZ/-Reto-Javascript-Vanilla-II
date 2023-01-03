@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ejerciciosJavascript.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EJERCICIO 11</h1>
+    <p>Crea dos arrays de números con la dimensión pasada por teclado. Uno de ellos
+        estará rellenado con números aleatorios y el otro apuntará al array anterior, reasigna
+        los valores del segundo array con valores aleatorios. Después, crea un método que
+        tenga como parámetros, los dos arrays y devuelva uno nuevo con la multiplicación
+        de la posición 0 del array1 con el del array2 y así sucesivamente. Por último, muestra
+        el contenido de cada array.
+    </p>
+    <p>Ver resultado en la consola</p>
+    <script>
+
+        let array1 = [];
+        let array2 = [];
+        let array3 = [];
+
+        array1 = llenarDeNumerosAleatorios(array1);
+        array2 = copiarValoresArray(array1);
+        array2 = convertirValoresEnAleatorios(array2);
+        array3 = multiplicarArrays(array1, array2);
+
+        console.log(array1);
+        console.log(array2);
+        console.log(array3);
+
+
+        function llenarDeNumerosAleatorios(array_numeros) {
+            let a = parseFloat(prompt("introduce la longitud del array"));
+            for (i = 0; i < a; i++) {
+                let b = Math.round(Math.random() * 100);
+                array_numeros.push(b);
+            }
+            return array_numeros;
+        }
+
+        // Dado un array, devolver otro array que tenga los mismos valores
+        function copiarValoresArray(array_numeros) {
+            let copiaArray_numeros = array_numeros.slice(0);
+            return copiaArray_numeros;
+        }
+
+        // Dado un array, convertir todos sus valores en aleatorios 
+        // y luego devolver el array
+        function convertirValoresEnAleatorios(array_numeros) {
+            let numeroAleatorio;
+            let array_numerosAleatorio = [];
+            for (i = 0; i < array_numeros.length; i++) {
+                numeroAleatorio = Math.round(Math.random() * 100);
+                array_numerosAleatorio.push(numeroAleatorio);
+            }
+            return array_numerosAleatorio;
+        }
+
+        // dados 2 arrays, multiplicar los valores de uno por los del otro
+        // y devolver un nuevo array con el resultado
+        function multiplicarArrays(array1, array2) {
+            let array3 = [];
+            let multiplicacion;
+            for (i = 0; i < array1.length; i++) {
+                multiplicacion = array1[i] * array2[i];
+                array3.push(multiplicacion);
+            }
+            return array3;
+        }
+
+    </script>
+    <footer>
+        <p>Retos-Javascript Vanilla (II)</p>
+        <p>Aroa Mendez</p>
+    </footer>
+</body>
+
+</html>

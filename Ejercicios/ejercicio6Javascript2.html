@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ejerciciosJavascript.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ejercicio 6</h1>
+    <p>Crea una aplicación que nos cuente el número de cifras de un número entero positivo
+        (hay que controlarlo) pedido por prompt. Crea un método que realice esta acción,
+        pasando el número por parámetro devolverá el número de cifras.</p>
+        <p>Ver resultado en la consola</p>
+
+    <script>
+
+        let numero = prompt("Introduce un numero");
+        let resultado = numeroCifras(numero);
+        console.log("El numero de cifras que contiene el numero " + numero + " es " + resultado);
+
+        function numeroCifras(numero) {
+            let numeroFormato = numero.toString();
+            let numeroCifras = numeroFormato.length;
+            return numeroCifras;
+        }
+    </script>
+    <footer>
+        <p>Retos-Javascript Vanilla (I)</p>
+        <p>Aroa Mendez</p>
+    </footer>
+</body>
+
+</html>

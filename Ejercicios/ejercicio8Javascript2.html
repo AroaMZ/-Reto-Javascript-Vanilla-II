@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ejerciciosJavascript.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EJERCICIO 8</h1>
+    <p>Crea un array de 10 posiciones de números con valores pedidos por prompt. Muestra
+        por consola el índice y el valor al que corresponde. Haz dos métodos, uno para
+        rellenar valores y otro para mostrar.
+    </p>
+    <p>Ver resultado en la consola</p>
+    <script>
+         let listaDeNumerosPorUsuario = numeroIntroducido();
+         ver(listaDeNumerosPorUsuario);
+
+        function numeroIntroducido() {
+            let arrayNumeros = [];
+            for (i = 0; i < 10; i++) {
+                numeroPorUsuario = prompt("Introduce un numero");
+                arrayNumeros.push(numeroPorUsuario);
+            }
+            return arrayNumeros;
+        }
+
+        function ver(numero) {
+            for (i = 0; i < 10; i++) {
+                console.log(i + 1 + " - " + numero[i]);
+            }
+        }
+    </script>
+    <footer>
+        <p>Retos-Javascript Vanilla (II)</p>
+        <p>Aroa Mendez</p>
+    </footer>
+</body>
+
+</html>
